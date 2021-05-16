@@ -5,8 +5,8 @@
                 LISTS
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item active">
-                    <p>School projects</p>
+                <a [routerLink]="['/tasklists', list.id]" routerLinkActive="active" class="list-menu-item" *ngFor="let list of taskLists">
+                    <p>{{list.name}}</p>
                 </a>
             </div>
             <button class="button shaped is-primary is-outlined">
@@ -19,9 +19,14 @@
                 TASKS
             </h1>
             <div class="task-list">
-                <div class="task-list-item">
-                    <div class="task-list-item-text">C# + Angular - simple CRUD app</div>
-                    <button class="button delete is-danger"></button>
+                <div class="task-list-item" (click)="taskClicked(task)" [ngClass]="task.completed ? 'completed' : ''" *ngFor="let task of tasks">
+                    <div class="text">{{task.text}}</div>
+                    <button class="button has-icon is-primary" (click)="editTask(task.id, $event)">
+                        <fa-icon class="button-icon" [icon]="faPen"></fa-icon>
+                    </button>
+                    <button class="button has-icon is-danger" (click)="deleteTask(task.id, $event)">
+                        <fa-icon class="button-icon" [icon]="faTrashAlt"></fa-icon>
+                    </button>
                 </div>
             </div>
         </div>
