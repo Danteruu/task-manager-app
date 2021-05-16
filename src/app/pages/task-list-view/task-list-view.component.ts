@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { faPen, faPlus, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Task } from 'src/app/models/task.model';
 import { TaskList } from '../../models/task-list.model';
+import { TaskManagerService } from '../../services/task-manager.service';
 
 @Component({
   selector: 'app-task-list-view',
@@ -15,60 +16,20 @@ export class TaskListViewComponent implements OnInit {
   faPen = faPen;
 
   listId?: number;
-  taskLists: TaskList[] = [
-    {
-      id: 1,
-      name: 'School projects',
-      createDate: new Date(2021, 5, 15),
-      deleted: false
-    },
-    {
-      id: 2,
-      name: 'Q2 2021',
-      createDate: new Date(2021, 5, 15),
-      deleted: false
-    },
-  ];
+  taskLists: TaskList[] = [];
   tasks: Task[] = [];
 
-  allTasks: Task[] = [
-    {
-      id: 1,
-      taskListId: 1,
-      text: 'C# + Angular - simple CRUD app',
-      completed: false,
-      deleted: false,
-    },
-    {
-      id: 2,
-      taskListId: 2,
-      text: 'Visit spanish family',
-      completed: true,
-      deleted: false
-    },
-    {
-      id: 3,
-      taskListId: 2,
-      text: 'Learn RPA basics 🎓',
-      completed: false,
-      deleted: false
-    },
-    {
-      id: 4,
-      taskListId: 2,
-      text: 'Use some unit tests 😆🤞',
-      completed: false,
-      deleted: false
-    },
-  ];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private taskManagerService: TaskManagerService) { }
 
   ngOnInit(): void {
+    this.taskManagerService.GetAllTaskLists().subscribe(response => {
+      this.taskLists = response;
+    });
+
     this.route.params.subscribe(params => {
       if (params.id) {
-        this.tasks = this.allTasks.filter(task => task.taskListId === +params.id);
-        console.log('tasks', this.tasks);
+        this.listId = params.id;
       }
     });
   }
