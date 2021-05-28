@@ -21,7 +21,7 @@
             <div class="task-list">
                 <div class="task-list-item" (click)="taskClicked(task)" [ngClass]="task.completed ? 'completed' : ''" *ngFor="let task of tasks">
                     <div class="text">{{task.text}}</div>
-                    <button class="button has-icon is-primary" (click)="editTask(task.id, $event)">
+                    <button class="button has-icon is-primary" (click)="editTask(task, $event)">
                         <fa-icon class="button-icon" [icon]="faPen"></fa-icon>
                     </button>
                     <button class="button has-icon is-danger" (click)="deleteTask(task.id, $event)">

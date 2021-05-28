@@ -34,9 +34,49 @@ export class TaskManagerService {
     });
   }
 
+  UpdateTaskList(updatedTaskList: TaskList): Observable<boolean> {
+    const url = `${this.apiUrl}/tasklist`;
+    return this.http.put<boolean>(url, updatedTaskList, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+  }
+
+  DeleteTaskList(id: number): Observable<boolean> {
+    const url = `${this.apiUrl}/tasklist/${id}`;
+    return this.http.delete<boolean>(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+  }
+
   GetTasksFromList(listId: number): Observable<Task[]> {
     const url = `${this.apiUrl}/tasklist/${listId}/tasks`;
     return this.http.get<Task[]>(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+  }
+
+  UpdateTask(updatedTask: Task): Observable<boolean> {
+    const url = `${this.apiUrl}/task`;
+    return this.http.put<boolean>(url, updatedTask, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+  }
+
+  DeleteTask(id: number): Observable<boolean> {
+    const url = `${this.apiUrl}/task/${id}`;
+    return this.http.delete<boolean>(url, {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
