@@ -4,8 +4,6 @@ import { faPen, faPlus, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-i
 import { Task } from 'src/app/models/task.model';
 import { TaskList } from '../../models/task-list.model';
 import { TaskManagerService } from '../../services/task-manager.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-task-list-view',
@@ -23,8 +21,7 @@ export class TaskListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private taskManagerService: TaskManagerService,
-              private snackBar: MatSnackBar) { }
+              private taskManagerService: TaskManagerService) { }
 
   ngOnInit(): void {
     this.loadTasks();

@@ -5,7 +5,7 @@
 // global variables
 
 $lighter-blue: #80a0db;
-$light-blue: #6088d2; 
+$light-blue: #6088d2;
 $blue: #4070c9;
 $dark-blue: #315DAF;
 $darker-blue: #284C8F;
@@ -15,7 +15,8 @@ $dark: #22221c;
 $red: #e4112a;
 
 // update bulma globals
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Nunito",
+sans-serif;
 $primary: $blue;
 $link: $blue;
 
@@ -23,9 +24,14 @@ $link: $blue;
 // global styles
 
 html {
-    background: linear-gradient(to right top, $light-blue, $dark-blue);
+  background: linear-gradient(to right top, $light-blue, $dark-blue);
 }
 
-html, body {
-    height: 100%;
-} 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding: 30px !important; // Override body padding added when swal dialog is active
+}

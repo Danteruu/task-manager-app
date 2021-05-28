@@ -24,9 +24,11 @@
     "@fortawesome/angular-fontawesome": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@sweetalert2/ngx-sweetalert2": "^10.0.0",
     "bulma": "^0.9.2",
     "font-awesome": "^4.7.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.0.12",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

@@ -7,6 +7,7 @@ import { TaskListComponent } from './pages/task-list/task-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskManagerService } from './services/task-manager.service';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TaskManagerService } from './services/task-manager.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     TaskManagerService
