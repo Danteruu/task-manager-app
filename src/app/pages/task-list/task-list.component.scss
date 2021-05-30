@@ -121,12 +121,18 @@
 }
 
 .button.has-icon {
-  width: 35px;
-  height: 35px;
-  margin-left: 10px;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
   transition: opacity 0.2s, transform 0.2s;
   transform: (scale(0.5));
   opacity: 0;
+}
+
+.button.is-outlined {
+  fa-icon {
+    margin-right: 8px;
+  }
 }
 
 .button.is-fab {
