@@ -13,13 +13,9 @@ const routes: Routes = [
     component: TaskListComponent
   },
   {
-    path: 'tasklists/:id',
+    path: 'tasklist/:id',
     component: TaskListComponent
-  },
-  {
-    path: 'task/:id',
-    component: TaskListComponent  // TODO: Create TaskEditViewComponent
-  },
+  }
 ];
 
 @NgModule({

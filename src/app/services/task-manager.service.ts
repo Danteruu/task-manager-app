@@ -64,6 +64,16 @@ export class TaskManagerService {
     });
   }
 
+  AddTask(newTask: Task): Observable<boolean> {
+    const url = `${this.apiUrl}/task`;
+    return this.http.post<boolean>(url, newTask, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+  }
+
   UpdateTask(updatedTask: Task): Observable<boolean> {
     const url = `${this.apiUrl}/task`;
     return this.http.put<boolean>(url, updatedTask, {

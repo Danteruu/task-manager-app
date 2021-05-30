@@ -2,7 +2,15 @@ export class Task {
     id!: number;
     taskListId!: number;
     text!: string;
-    createDate = new Date(2021, 5, 15);
-    completed = false;
-    deleted = false;
+    createDate!: Date;
+    deleted!: boolean;
+    completed!: boolean;
+
+    constructor(text: string, taskListId: number) {
+      this.taskListId = taskListId;
+      this.text = text;
+      this.createDate = new Date();
+      this.completed = false;
+      this.deleted = false;
+    }
   }
